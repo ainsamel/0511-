@@ -47,7 +47,7 @@ public class LoginCtrl extends HttpServlet {
 			HttpSession session = request.getSession(); // 2
 			session.setAttribute("username", user.getUsername()); // 세션객체는 내장 아님 1
 
-			response.sendRedirect("mainCtrl");
+			response.sendRedirect("mainList");
 		} else {
 			response.sendRedirect("login.jsp");
 		}

@@ -5,7 +5,7 @@
 	<c:if test="${empty name }">
 		<c:redirect url="login.jsp" />
 	</c:if>
-<!-- getBoardList.jsp -->
+<!-- mainList.jsp -->
 	
 <!DOCTYPE html>
 <html>

@@ -21,7 +21,7 @@ public class mainCtrl extends HttpServlet {
       HomeDAO dao = new HomeDAO();
       ArrayList<HomeVO> mainList = dao.mainList();
       // 가져온 데이터를 request에 담는다. 타입은 Object 타입으로 캐스팅돼서 담긴다.
-      request.setAttribute("boardList", boardList);
+      request.setAttribute("mainList", mainList);
 
       // 현재 사용한 request와 response를 getBoardList.jsp 파일에 전달하면서 이동
       RequestDispatcher view = request.getRequestDispatcher("mainList.jsp");

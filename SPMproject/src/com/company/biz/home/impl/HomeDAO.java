@@ -20,7 +20,7 @@ public class HomeDAO {
 		
 		 
 		 try {
-			 conn = JdbcConnection.getConncection();
+			 conn = JdbcConnection.getConnection();
 		    	
 	         String sql = "select * from main order by seq desc";
 	         stmt = conn.prepareStatement(sql);
