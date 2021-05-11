@@ -41,13 +41,13 @@ public class LoginCtrl extends HttpServlet {
 		// user가 있으면 UserVO 객체에 name값이 담겨져 넘어오고
 		// 없으면 null이 넘어온다.
 		UserVO user = dao.login(vo);
-
+		System.out.println(user);
 		if (user != null) {
 
 			HttpSession session = request.getSession(); // 2
 			session.setAttribute("username", user.getUsername()); // 세션객체는 내장 아님 1
 
-			response.sendRedirect("mainCtrl");
+			response.sendRedirect("GetBoardListCtrl");
 		} else {
 			response.sendRedirect("login.jsp");
 		}

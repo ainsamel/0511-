@@ -17,10 +17,10 @@ public class GetBoardCtrl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//조회 ?�� row?�� seq 번호�? 받는?��.
+		//조회 할 row의 seq 번호를 받는다.
 		int num= Integer.parseInt(request.getParameter("num"));
 		
-		//DAO?�� 받�? 번호�? ?��?��?���? �? 결과값을 받는?��.
+		//DAO에 받은 번호를 전달하고 그 결과값을 받는다.
 		BoardDAO dao = new BoardDAO();
 		BoardVO board = dao.getBoard(num);
 		

@@ -3,59 +3,56 @@ package com.company.biz.board;
 import java.sql.Date;
 
 public class BoardVO {
-	private int number;
-	private String usertype;
+	private int seq;
 	private String userid;
 	private String username;
-	private String tel;
-	private String email;
-	private String address;
+	private String title;
+	private String content;
+	private Date regdate;
+	
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public Date getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
 	
 	@Override
 	public String toString() {
-		return "BoardVO [number=" + number + ", usertype=" + usertype + ", userid=" + userid + ", username=" + username
-				+ ", tel=" + tel + ", email=" + email + ", address=" + address + "]";
+		return "BoardVO [seq=" + seq + ", userid=" + userid + ", username=" + username + ", title=" + title
+				+ ", content=" + content + ", regdate=" + regdate + "]";
 	}
-	public int getnumber() {
-		return number;
-	}
-	public void setnumber(int seq) {
-		this.number = number;
-	}
-	public String getusertype() {
-		return usertype;
-	}
-	public void setusertype(String usertype) {
-		this.usertype = usertype;
-	}
-	public String getuserid() {
-		return userid;
-	}
-	public void setuserid(String userid) {
-		this.userid = userid;
-	}
-	public String getusername() {
-		return username;
-	}
-	public void setusername(String username) {
-		this.username = username;
-	}
-	public String gettel() {
-		return tel;
-	}
-	public void settel(String tel) {
-		this.tel = tel;
-	}
-	public String getemail() {
-		return email;
-	}
-	public void setemail(String email) {
-		this.email = email;
-	}
-	public String getaddress() {
-		return address;
-	}
-	public void setaddress(String address) {
-		this.address = address;
-	}
+
+	
 }
+	
