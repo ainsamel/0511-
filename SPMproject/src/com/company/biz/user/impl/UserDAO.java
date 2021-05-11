@@ -20,7 +20,7 @@ public class UserDAO {
 		try {
 			conn = JdbcConnection.getConnection();
 
-			String sql = "select * from users where id = ? and password = ?";
+			String sql = "select * from spuser where id = ? and password = ?";
 			stmt = conn.prepareStatement(sql);
 
 //			stmt.setInt(1, vo.getNumber());

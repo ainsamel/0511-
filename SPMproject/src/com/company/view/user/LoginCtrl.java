@@ -26,6 +26,7 @@ public class LoginCtrl extends HttpServlet {
 
 		String userid = request.getParameter("userid");
 		String password = request.getParameter("password");
+		System.out.println(userid + " / " + password);
 
 		// 받을 값을 DAO에 전달하기 위새 1개의 변수로 결합
 		UserVO vo = new UserVO();
