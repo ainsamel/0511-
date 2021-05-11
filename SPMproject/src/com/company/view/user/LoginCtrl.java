@@ -21,12 +21,8 @@ public class LoginCtrl extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		doGet(request, response);
 
-		// 처리 할 값 받기
-		// request.setCharacterEncoding("UTF-8");
-
-//		request.setCharacterEncoding("UTF-8"); // 항상 받기전에 줘야한다.
+		request.setCharacterEncoding("UTF-8");
 
 		String userid = request.getParameter("userid");
 		String password = request.getParameter("password");
