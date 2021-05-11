@@ -46,6 +46,15 @@
   	<url-pattern>/loginCtrl</url-pattern>	
   </servlet-mapping>
 
+	<servlet>
+     <servlet-name>InsertUserCtrl</servlet-name>
+     <servlet-class>com.company.view.user.InsertUserCtrl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>InsertUserCtrl</servlet-name>
+     <url-pattern>/InsertUserCtrl</url-pattern>   
+  </servlet-mapping>
 
 
 

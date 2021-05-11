@@ -21,15 +21,12 @@ public class LoginCtrl extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		doGet(request, response);
 
-		// 처리 할 값 받기
-		// request.setCharacterEncoding("UTF-8");
-
-//		request.setCharacterEncoding("UTF-8"); // 항상 받기전에 줘야한다.
+		request.setCharacterEncoding("UTF-8");
 
 		String userid = request.getParameter("userid");
 		String password = request.getParameter("password");
+		System.out.println(userid + " / " + password);
 
 		// 받을 값을 DAO에 전달하기 위새 1개의 변수로 결합
 		UserVO vo = new UserVO();
@@ -41,13 +38,17 @@ public class LoginCtrl extends HttpServlet {
 		// user가 있으면 UserVO 객체에 name값이 담겨져 넘어오고
 		// 없으면 null이 넘어온다.
 		UserVO user = dao.login(vo);
-
+		System.out.println(user);
 		if (user != null) {
 
 			HttpSession session = request.getSession(); // 2
 			session.setAttribute("username", user.getUsername()); // 세션객체는 내장 아님 1
 
+<<<<<<< HEAD
 			response.sendRedirect("mainList");
+=======
+			response.sendRedirect("GetBoardListCtrl");
+>>>>>>> branch 'master' of https://github.com/ainsamel/0511-.git
 		} else {
 			response.sendRedirect("login.jsp");
 		}
