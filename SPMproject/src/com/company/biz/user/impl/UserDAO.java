@@ -60,8 +60,7 @@ public class UserDAO {
 		try {
 			conn = JdbcConnection.getConnection();
 
-			String sql = "insert into users(usernumber, usertype, userid, password, username, tel, email, address) "
-					+ "values((select count(usernumber) from spuser)+1,'일반회원',?,?,?,?,?,?)";
+			String sql = "insert into spuser(usernumber, usertype, userid, password, username, tel, email, address) values((select count(usernumber) from spuser)+1,'일반회원',?,?,?,?,?,?)";
 
 			stmt = conn.prepareStatement(sql);
 
