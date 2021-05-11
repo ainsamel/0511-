@@ -16,14 +16,14 @@ public class BoardDAO {
 	private ResultSet rs = null;
 	
 	
-	// ? „ì²´ê²Œ?‹œë¬? ì¡°íšŒ
+	// ì „ì²´ê²Œì‹œë¬¼ ì¡°íšŒ
 	public ArrayList<BoardVO> getBoardList() {
 
 		ArrayList<BoardVO> boardList = new ArrayList<BoardVO>();
 
 		try {
-			//static ë©”ì„œ?“œ?¼ ?´?˜?Š¤ ?´ë¦„ìœ¼ë¡? ? ‘ê·?
-			conn = JdbcConnection.getConncection();
+			//static ë©”ì„œë“œë¼ í´ë˜ìŠ¤ ì´ë¦„ìœ¼ë¡œ ì ‘ê·¼
+			conn = JdbcConnection.getConnection();
 			
 			String sql = "select * from board order by seq desc";
 			stmt = conn.prepareStatement(sql);
@@ -33,13 +33,12 @@ public class BoardDAO {
 			while (rs.next()) {
 				BoardVO vo = new BoardVO();
 
-				vo.setnumber(rs.getInt("number"));
-				vo.setusertype(rs.getString("usertype"));
-				vo.setuserid(rs.getString("userid"));
-				vo.setusername(rs.getString("username"));
-				vo.settel(rs.getString("tel"));
-				vo.setemail(rs.getString("email"));
-				vo.setaddress(rs.getString("userid"));
+				vo.setSeq(rs.getInt("seq"));
+				vo.setUserid(rs.getString("userid"));
+				vo.setUsername(rs.getString("username"));
+				vo.setTitle(rs.getString("title"));
+				vo.setContent(rs.getString("content"));
+				vo.setRegdate(rs.getDate("regdate"));
 
 				boardList.add(vo);
 			}
@@ -49,20 +48,20 @@ public class BoardDAO {
 		} finally {
 			JdbcConnection.close(rs, stmt, conn);
 		}
-		// ê²°ê³¼ë¬¼ì„ ?‹´?? ê°ì²´ë¥? ë¦¬í„´
+		// ê²°ê³¼ë¬¼ì„ ë‹´ì€ ê°ì²´ë¥¼ ë¦¬í„´
 		return boardList;
 	}
 
-	// ê²Œì‹œë¬? 1ê°? ì¡°íšŒ
+	// ê²Œì‹œë¬¼ 1ê°œ ì¡°íšŒ
 	public BoardVO getBoard(int num) {
 
 		BoardVO board = null;
 
-		// ?˜¸ì¶œí•˜?Š” ê³³ì—?„œ ?•„?š”?•œ ê°’ì„ ? „?‹¬. ?”°?¼?„œ ë§¤ê°œë³??ˆ˜ë¡? ì²˜ë¦¬?•œ?‹¤.
+		// í˜¸ì¶œí•˜ëŠ” ê³³ì—ì„œ í•„ìš”í•œ ê°’ì„ ì „ë‹¬. ë”°ë¼ì„œ ë§¤ê°œë³€ìˆ˜ë¡œ ì²˜ë¦¬í•œë‹¤.
 		// int num = Integer.parseInt(request.getParameter("num"));
 
 		try {
-			conn = JdbcConnection.getConncection();
+			conn = JdbcConnection.getConnection();
 			
 			String sql = "select * from board where seq = ?";
 			stmt = conn.prepareStatement(sql);
@@ -74,13 +73,13 @@ public class BoardDAO {
 			if (rs.next()) {
 				board = new BoardVO();
 
-				board.setnumber(rs.getInt("number"));
-				board.setusertype(rs.getString("usertype"));
-				board.setuserid(rs.getString("userid"));
-				board.setusername(rs.getString("username"));
-				board.settel(rs.getString("tel"));
-				board.setemail(rs.getString("email"));
-				board.setaddress(rs.getString("address"));
+				board.setSeq(rs.getInt("seq"));
+				board.setUserid(rs.getString("userid"));
+				board.setUsername(rs.getString("username"));
+				board.setTitle(rs.getString("title"));
+				board.setContent(rs.getString("content"));
+				board.setRegdate(rs.getDate("regdate"));
+				
 			}
 
 		} catch (Exception e) {
@@ -89,26 +88,26 @@ public class BoardDAO {
 			JdbcConnection.close(rs, stmt, conn);
 			}
 		
-		// ì¿¼ë¦¬ ?‹¤?–‰ê²°ê³¼ 1ê°œë?? ?˜¸ì¶œí•œ ê³³ìœ¼ë¡? ? „?‹¬.
+		// ì¿¼ë¦¬ ì‹¤í–‰ê²°ê³¼ 1ê°œë¥¼ í˜¸ì¶œí•œ ê³³ìœ¼ë¡œ ì „ë‹¬.
 		return board;
 	}
 
-	// ê²Œì‹œë¬? ?…? ¥
+	// ê²Œì‹œë¬¼ ì…ë ¥
 	public int addBoard(BoardVO vo) {
 
 		int cnt = 0;
 
 		try {
-			conn = JdbcConnection.getConncection();
+			conn = JdbcConnection.getConnection();
 			
 			String sql = "insert into board (seq, title, nickname, content) "
 					+ "values( (select nvl(max(seq), 0) + 1 from BOARD), ?, ?, ?)";
 
 			stmt = conn.prepareStatement(sql);
 
-			stmt.setString(1, vo.getuserid());
-			stmt.setString(2, vo.getusertype());
-			stmt.setString(3, vo.getusername());
+			stmt.setString(1, vo.getTitle());
+			stmt.setString(2, vo.getUsername());
+			stmt.setString(3, vo.getContent());
 
 			cnt = stmt.executeUpdate();
 
@@ -126,22 +125,22 @@ public class BoardDAO {
 		} finally {
 			JdbcConnection.close(stmt, conn);
 		}
-		// ë§ˆì?ë§‰ì— ?‹¤?–‰?œ ê°œìˆ˜ ? „?‹¬
+		// ë§ˆì§€ë§‰ì— ì‹¤í–‰ëœ ê°œìˆ˜ ì „ë‹¬
 		return cnt;
 
 	}
 
-	// ê²Œì‹œë¬? ?‚­? œ
+	// ê²Œì‹œë¬¼ ì‚­ì œ
 	public int deleteBoard(BoardVO vo) {
 		
 		int cnt = 0;
 				
 		try {
-			conn = JdbcConnection.getConncection();
+			conn = JdbcConnection.getConnection();
 			
 			String sql = "delete from board where seq = ?";
 			stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, vo.getnumber());
+			stmt.setInt(1, vo.getSeq());
 
 			cnt = stmt.executeUpdate();
 			if (cnt != 0) {
@@ -161,11 +160,11 @@ public class BoardDAO {
 	}
 
 	
-	//ê²Œì‹œë¬? ?ˆ˜? •
+	//ê²Œì‹œë¬¼ ìˆ˜ì •
 	public void updateBoard(BoardVO vo) {
 		
 		try {
-			conn = JdbcConnection.getConncection();
+			conn = JdbcConnection.getConnection();
 			
 			
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
