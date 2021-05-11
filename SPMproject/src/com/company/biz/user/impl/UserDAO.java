@@ -25,8 +25,10 @@ public class UserDAO {
 
 			stmt.setString(1, vo.getUserid());
 			stmt.setString(2, vo.getPassword());
+			System.out.println(vo.getUserid());
 
 			rs = stmt.executeQuery();
+			System.out.println(rs);
 			if (rs.next()) {
 				user = new UserVO();
 				user.setUsername(rs.getString("name"));
