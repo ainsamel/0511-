@@ -15,7 +15,7 @@
 <body>
 	<div id="header" class="card-body">
 		<h1>Board List</h1>
-		<h3>${name }님 환영합니다.. <a href= "logoutCtrl">Logout</a></h3>
+		<h3>${username }님 환영합니다.. <a href= "logoutCtrl">Logout</a></h3>
 	</div>
 
 	<div id="content" class="card-body">
@@ -26,7 +26,6 @@
 					<th>타이틀</th>
 					<th>작성자</th>
 					<th>작성일</th>
-					<th>조회수</th>
 				</tr>
 			</thead>
 			<tbody>
