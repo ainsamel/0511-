@@ -16,14 +16,14 @@ public class BoardDAO {
 	private ResultSet rs = null;
 	
 	
-	// ? „ì²´ê²Œ?‹œë¬? ì¡°íšŒ
+	// ?ï¿½ï¿½ì²´ê²Œ?ï¿½ï¿½ï¿½? ì¡°íšŒ
 	public ArrayList<BoardVO> getBoardList() {
 
 		ArrayList<BoardVO> boardList = new ArrayList<BoardVO>();
 
 		try {
-			//static ë©”ì„œ?“œ?¼ ?´?˜?Š¤ ?´ë¦„ìœ¼ë¡? ? ‘ê·?
-			conn = JdbcConnection.getConncection();
+			//static ë©”ì„œ?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ë¦„ìœ¼ï¿½? ?ï¿½ï¿½ï¿½?
+			conn = JdbcConnection.getConnection();
 			
 			String sql = "select * from board order by seq desc";
 			stmt = conn.prepareStatement(sql);
@@ -49,16 +49,16 @@ public class BoardDAO {
 		} finally {
 			JdbcConnection.close(rs, stmt, conn);
 		}
-		// ê²°ê³¼ë¬¼ì„ ?‹´?? ê°ì²´ë¥? ë¦¬í„´
+		// ê²°ê³¼ë¬¼ì„ ?ï¿½ï¿½?? ê°ì²´ï¿½? ë¦¬í„´
 		return boardList;
 	}
 
-	// ê²Œì‹œë¬? 1ê°? ì¡°íšŒ
+	// ê²Œì‹œï¿½? 1ï¿½? ì¡°íšŒ
 	public BoardVO getBoard(int num) {
 
 		BoardVO board = null;
 
-		// ?˜¸ì¶œí•˜?Š” ê³³ì—?„œ ?•„?š”?•œ ê°’ì„ ? „?‹¬. ?”°?¼?„œ ë§¤ê°œë³??ˆ˜ë¡? ì²˜ë¦¬?•œ?‹¤.
+		// ?ï¿½ï¿½ì¶œí•˜?ï¿½ï¿½ ê³³ì—?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ê°’ì„ ?ï¿½ï¿½?ï¿½ï¿½. ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ë§¤ê°œï¿½??ï¿½ï¿½ï¿½? ì²˜ë¦¬?ï¿½ï¿½?ï¿½ï¿½.
 		// int num = Integer.parseInt(request.getParameter("num"));
 
 		try {
@@ -89,11 +89,11 @@ public class BoardDAO {
 			JdbcConnection.close(rs, stmt, conn);
 			}
 		
-		// ì¿¼ë¦¬ ?‹¤?–‰ê²°ê³¼ 1ê°œë?? ?˜¸ì¶œí•œ ê³³ìœ¼ë¡? ? „?‹¬.
+		// ì¿¼ë¦¬ ?ï¿½ï¿½?ï¿½ï¿½ê²°ê³¼ 1ê°œï¿½?? ?ï¿½ï¿½ì¶œí•œ ê³³ìœ¼ï¿½? ?ï¿½ï¿½?ï¿½ï¿½.
 		return board;
 	}
 
-	// ê²Œì‹œë¬? ?…? ¥
+	// ê²Œì‹œï¿½? ?ï¿½ï¿½?ï¿½ï¿½
 	public int addBoard(BoardVO vo) {
 
 		int cnt = 0;
@@ -126,12 +126,12 @@ public class BoardDAO {
 		} finally {
 			JdbcConnection.close(stmt, conn);
 		}
-		// ë§ˆì?ë§‰ì— ?‹¤?–‰?œ ê°œìˆ˜ ? „?‹¬
+		// ë§ˆï¿½?ë§‰ì— ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ê°œìˆ˜ ?ï¿½ï¿½?ï¿½ï¿½
 		return cnt;
 
 	}
 
-	// ê²Œì‹œë¬? ?‚­? œ
+	// ê²Œì‹œï¿½? ?ï¿½ï¿½?ï¿½ï¿½
 	public int deleteBoard(BoardVO vo) {
 		
 		int cnt = 0;
@@ -161,7 +161,7 @@ public class BoardDAO {
 	}
 
 	
-	//ê²Œì‹œë¬? ?ˆ˜? •
+	//ê²Œì‹œï¿½? ?ï¿½ï¿½?ï¿½ï¿½
 	public void updateBoard(BoardVO vo) {
 		
 		try {

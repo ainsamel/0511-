@@ -4,7 +4,7 @@ drop table spbasket;
 
 create table spuser(
 UserNumber number not null constraints user_UserNumber_PK primary key,
-UserType varchar2(20) not null,
+UserType varchar2(20) default '일반회원',
 UserID varchar2(20) not null,
 Password varchar2(20) not null,
 UserName varchar2(20) not null,
@@ -18,7 +18,8 @@ insert into spuser values(1000002,'관리자','manager02','1234','김지영','01
 insert into spuser values(1000003,'일반회원','dkjfh35','1111','김수란','010-1234-1237','dkjfh35@naver.com','수원시 팔달구');
 insert into spuser values(1000004,'일반회원','skjdh200','1111','이승철','010-1234-1238','skjdh200@naver.com','서울 동대문구');
 insert into spuser values(1000005,'일반회원','fhjd33','1111','이유나','010-1234-1239','fhjd33@naver.com','수원시 권선구');
-
+insert into spuser(usernumber, UserType, userid, password, username, tel, email, address)
+values((select count(usernumber) from spuser)+1, '일반회원','dbtestuser','1234','dbtest','010-1234-1239','fhjd33@naver.com','수원시 권선구');
 
 select * from spuser;
 --------------------------------고객DB끝----------------------------------

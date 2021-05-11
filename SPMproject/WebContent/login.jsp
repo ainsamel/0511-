@@ -14,7 +14,7 @@
          <table class="table" style="width:400px">
             <tr>
                <td>아이디</td>
-               <td><input type="text" class="form-control" name="id" value="guest" /></td>
+               <td><input type="text" class="form-control" name="userid" value="guest" /></td>
             </tr>
             <tr>
                <td>비밀번호</td>
