@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/ShoppingProject"
+               sdocBase="ShoppingProject" debug="5"
+               reloadable="true" crossContext="true">
+            <Resource name="jdbc/oracleDS"
+               auth="Container" type="javax.sql.DataSource"
+               maxActive="100" maxIdle="30" maxWait="10000"
+               username="hr" password="hr"
+               driverClassName="oracle.jdbc.driver.OracleDriver"
+               url="jdbc:oracle:thin:@localhost:1521:xe"/>
+</Context>
