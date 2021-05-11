@@ -26,13 +26,13 @@ public class AddBoardCtrl extends HttpServlet {
 			throws ServletException, IOException {
 
 		String title = request.getParameter("title");
-		String nickname = request.getParameter("nickname");
+		String username = request.getParameter("username");
 		String content = request.getParameter("content");
 		
-		//?ŒŒ?¼ë©”í„° ë°›ì? ê°’ì„ ?•œê°œì˜ ë³??ˆ˜ë¡? ê´?ë¦¬í•˜ê¸? ?œ„?•´ VO ê°ì²´?— ?‹´?•„ ? „?‹¬
+		//íŒŒë¼ë©”í„° ë°›ì€ ê°’ì„ í•œê°œì˜ ë³€ìˆ˜ë¡œ ê´€ë¦¬í•˜ê¸° ìœ„í•´ VO ê°ì²´ì— ë‹´ì•„ ì „ë‹¬
 		BoardVO vo = new BoardVO();
 		vo.setTitle(title);
-		vo.setNickname(nickname);
+		vo.setUsername(username);
 		vo.setContent(content);
 		
 		BoardDAO dao = new BoardDAO();
@@ -45,3 +45,9 @@ public class AddBoardCtrl extends HttpServlet {
 		}
 		
 		response.sendRedirect("getBoardListCtrl");
+		
+		
+
+	}
+
+}

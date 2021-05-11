@@ -25,7 +25,7 @@ public class UpdateBoardBeforeCtrl extends HttpServlet {
 
 		int num = Integer.parseInt(request.getParameter("num"));
 		
-		//처리로직?�� getBoard.jsp?? ?��?��
+		//처리로직이 getBoard.jsp와 동일
 		BoardDAO dao = new BoardDAO();
 		BoardVO board = dao.getBoard(num);
 		

@@ -17,14 +17,14 @@ public class GetBoardListCtrl extends HttpServlet {
        
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//DAOë¡œë??„° ? „ì²? ë¦¬ìŠ¤?Š¸?˜ ê²°ê³¼ê°’ì„ ë°›ì•„?˜¨?‹¤.
+		//DAOë¡œë¶€í„° ì „ì²´ ë¦¬ìŠ¤íŠ¸ì˜ ê²°ê³¼ê°’ì„ ë°›ì•„ì˜¨ë‹¤.
 		BoardDAO dao = new BoardDAO();
 		ArrayList<BoardVO> boardList = dao.getBoardList();
 		
-		//ê°?? ¸?˜¨ ?°?´?„°ë¥? request?— ?‹´?Š”?‹¤. ???…?? Object ???…?œ¼ë¡? ìºìŠ¤?Œ…?˜?„œ ?‹´ê¸´ë‹¤.
+		//ê°€ì ¸ì˜¨ ë°ì´í„°ë¥¼ requestì— ë‹´ëŠ”ë‹¤. íƒ€ì…ì€ Object íƒ€ì…ìœ¼ë¡œ ìºìŠ¤íŒ…ë˜ì„œ ë‹´ê¸´ë‹¤.
 		request.setAttribute("boardList", boardList);
 		
-		//?˜„?¬ ?‚¬?š©?•œ request?? responseë¥? getBoardList.jsp ?ŒŒ?¼?— ? „?‹¬?•˜ë©´ì„œ ?´?™
+		//í˜„ì¬ ì‚¬ìš©í•œ requestì™€ responseë¥¼ getBoardList.jsp íŒŒì¼ì— ì „ë‹¬í•˜ë©´ì„œ ì´ë™
 		RequestDispatcher view = request.getRequestDispatcher("getBoardList.jsp");
 		view.forward(request,response);
 	}

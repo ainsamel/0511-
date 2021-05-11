@@ -1,10 +1,6 @@
 package com.company.view.board;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +24,7 @@ public class UpdateBoardCtrl extends HttpServlet {
 		String content = request.getParameter("content");
 		int num  = Integer.parseInt(request.getParameter("num"));
 		
-		//?„˜?–´?˜¨ê°’ì„ BoardVO?— ?‹¤ ?‹´?•„?„œ ?•œë²ˆì— ? „?‹¬
+		//ë„˜ì–´ì˜¨ê°’ì„ BoardVOì— ë‹¤ ë‹´ì•„ì„œ í•œë²ˆì— ì „ë‹¬
 		BoardVO vo = new BoardVO();
 		vo.setTitle(title);
 		vo.setContent(content);

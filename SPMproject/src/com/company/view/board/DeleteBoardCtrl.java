@@ -1,10 +1,6 @@
 package com.company.view.board;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +17,7 @@ public class DeleteBoardCtrl extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//?„œë¸”ë¦¿?? session?´ ?‚´?¥ê°ì²´ê°? ?•„?‹ˆë¯?ë¡? ?‚¬?š©?•˜? ¤ë©? ë°›ì•„???•¼?•œ?‹¤.
+		//ì„œë¸”ë¦¿ì€ sessionì´ ë‚´ì¥ê°ì²´ê°€ ì•„ë‹ˆë¯€ë¡œ ì‚¬ìš©í•˜ë ¤ë©´ ë°›ì•„ì™€ì•¼í•œë‹¤.
 		HttpSession session = request.getSession();
 		
 		String name = (String)session.getAttribute("name");
@@ -30,11 +26,11 @@ public class DeleteBoardCtrl extends HttpServlet {
 			return;
 		}
 		
-		// ?„˜?–´?˜¤?Š” ê°? ë°›ê¸°
+		// ë„˜ì–´ì˜¤ëŠ” ê°’ ë°›ê¸°
 		int num  = Integer.parseInt(request.getParameter("num"));
 		
-		//ì§?ê¸ˆì? ? „?‹¬?•  ë§¤ê°œë³??ˆ˜ê°? 1ê°œì?ë§? ì¶”í›„ ?Š˜?–´?‚  ê²½ìš° ??ë¹?(?œ ì§?ë³´ìˆ˜)
-		//BoardVO ê°ì²´?— ?‹´?•„ ? „?‹¬. intë¡? 1ê°œë§Œ ? „?‹¬?•´?„ ?¨
+		//ì§€ê¸ˆì€ ì „ë‹¬í•  ë§¤ê°œë³€ìˆ˜ê°€ 1ê°œì§€ë§Œ ì¶”í›„ ëŠ˜ì–´ë‚  ê²½ìš° ëŒ€ë¹„(ìœ ì§€ë³´ìˆ˜)
+		//BoardVO ê°ì²´ì— ë‹´ì•„ ì „ë‹¬. intë¡œ 1ê°œë§Œ ì „ë‹¬í•´ë„ ë¨
 		BoardVO vo = new BoardVO();
 		vo.setSeq(num);
 		
@@ -42,7 +38,7 @@ public class DeleteBoardCtrl extends HttpServlet {
 		int cnt = dao.deleteBoard(vo);
 		
 		
-		// ë¦¬ìŠ¤?Š¸ ?˜?´ì§?ë¡? ë°”ë¡œ ?´?™
+		// ë¦¬ìŠ¤íŠ¸ í˜ì´ì§€ë¡œ ë°”ë¡œ ì´ë™
 		if(cnt != 0) {
 			response.sendRedirect("getBoardListCtrl");
 		}else {
