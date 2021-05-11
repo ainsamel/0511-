@@ -23,19 +23,12 @@ public class UserDAO {
 			String sql = "select * from spuser where id = ? and password = ?";
 			stmt = conn.prepareStatement(sql);
 
-//			stmt.setInt(1, vo.getNumber());
-//			stmt.setString(2, vo.getUsertype());
 			stmt.setString(1, vo.getUserid());
 			stmt.setString(2, vo.getPassword());
-//			stmt.setString(5, vo.getUsername());
-//			stmt.setString(6, vo.getTel());
-//			stmt.setString(7, vo.getEmail());
-//			stmt.setString(8, vo.getAddress());
 
 			rs = stmt.executeQuery();
 			if (rs.next()) {
 				user = new UserVO();
-//				user.setId(rs.getString("id"));	 사실상 필요하지 않다.
 				user.setUsername(rs.getString("name"));
 			}
 		} catch (Exception e) {
