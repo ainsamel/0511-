@@ -16,7 +16,7 @@ public class UserDAO {
 		UserVO user = null;
 
 		try {
-			conn = JdbcConnection.getConncection();
+			conn = JdbcConnection.getConnection();
 
 			String sql = "select * from users where id = ? and password = ?";
 			stmt = conn.prepareStatement(sql);
