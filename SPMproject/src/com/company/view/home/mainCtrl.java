@@ -24,7 +24,7 @@ public class mainCtrl extends HttpServlet {
       request.setAttribute("boardList", boardList);
 
       // 현재 사용한 request와 response를 getBoardList.jsp 파일에 전달하면서 이동
-      RequestDispatcher view = request.getRequestDispatcher("getBoardList.jsp");
+      RequestDispatcher view = request.getRequestDispatcher("mainList.jsp");
       view.forward(request, response);
 
    }

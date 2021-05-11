@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>GetBoardList</title>
+<title>MainList</title>
 <link rel="stylesheet" type="text/css"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -25,11 +25,7 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>번호</th>
-					<th>타이틀</th>
-					<th>작성자</th>
-					<th>작성일</th>
-					<th>조회수</th>
+					<td><button>아우터</button></td>
 				</tr>
 			</thead>
 			<tbody>
