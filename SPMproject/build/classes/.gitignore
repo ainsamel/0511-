@@ -1,1 +1,10 @@
 /com/
+/AddBoardCtrl.class
+/BoardVO.class
+/DeleteBoardCtrl.class
+/GetBoardCtrl.class
+/GetBoardListCtrl.class
+/UpdateBoardBeforeCtrl.class
+/UpdateBoardCtrl.class
+/board/
+/impl/
