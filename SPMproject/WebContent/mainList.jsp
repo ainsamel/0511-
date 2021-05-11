@@ -25,11 +25,7 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>번호</th>
-					<th>타이틀</th>
-					<th>작성자</th>
-					<th>작성일</th>
-					<th>조회수</th>
+					<td><button>아우터</button></td>
 				</tr>
 			</thead>
 			<tbody>
